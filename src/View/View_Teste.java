@@ -39,8 +39,6 @@ public class View_Teste extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         MenuProduto1 = new javax.swing.JMenu();
         Venda = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,13 +98,6 @@ public class View_Teste extends javax.swing.JFrame {
                 VendaMouseClicked(evt);
             }
         });
-
-        jMenuItem3.setText("Cadastrar");
-        Venda.add(jMenuItem3);
-
-        jMenuItem4.setText("Consultar");
-        Venda.add(jMenuItem4);
-
         jMenuBar1.add(Venda);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/signout_106525.png"))); // NOI18N
@@ -135,10 +126,6 @@ public class View_Teste extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseClicked
-    
-    }//GEN-LAST:event_VendaMouseClicked
-
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         if(JOptionPane.showConfirmDialog(null, "Deseja mesmo sair?") == 0) {System.exit(0);}
     }//GEN-LAST:event_jMenu2MouseClicked
@@ -163,6 +150,10 @@ public class View_Teste extends javax.swing.JFrame {
         Fun.setVisible(true);
     }//GEN-LAST:event_jMenu5MouseClicked
 
+    private void VendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseClicked
+
+    }//GEN-LAST:event_VendaMouseClicked
+
     public static void main(String args[]) {
                
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -180,8 +171,6 @@ public class View_Teste extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

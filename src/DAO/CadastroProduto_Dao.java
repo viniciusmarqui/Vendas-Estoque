@@ -19,13 +19,13 @@ public class CadastroProduto_Dao
    
      public void Salvar(Produto produto) throws SQLException {
         int Codigo = 0;
-        sql = "INSERT INTO `produto` (`Codigo`, `Descricao`, `Valor`, `Fabricante`, `Quantidade`, `Status`) VALUES (?,?,?,?,?,?)";
+        sql = "INSERT INTO `produto` (`Codproduto`, `descricao`, `marca`, `qntestoque`, `precovenda`,`Fabricante`, `status`) VALUES (?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, 0);
         pst.setString(2, produto.getDescricao());
         pst.setFloat(3, (float) produto.getValor());
         pst.setString(4, produto.getFabricante());
-        pst.setInt(5, produto.getQuantidade());
+        pst.setInt(5, (int) produto.getQntestoque());
         pst.setString(6, "");
         pst.execute();
         pst.close();
@@ -33,7 +33,7 @@ public class CadastroProduto_Dao
     }
      public void ExcluirProduto(int Codigo) throws SQLException
     {
-        sql = " delete from produto where Codigo=?";
+        sql = " delete from produto where Codproduto=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, Codigo);
         pst.execute();
@@ -42,19 +42,19 @@ public class CadastroProduto_Dao
     
     
       public void Alterar( Produto Pro) throws SQLException {
-        sql = "Update produto set Descricao =?, Valor=?, Fabricante=?, Quantidade=? where Codigo=?";
+        sql = "Update produto set descricao =?, marca=?, qntestoque=?, precovenda=?, precocompra=?, Fabricante=?, status=? where Codproduto=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, Pro.getDescricao());
         pst.setDouble(2, Pro.getValor());
         pst.setString(3, Pro.getFabricante());
-        pst.setInt(4, Pro.getQuantidade());
+        pst.setFloat(4, Pro.getQntestoque());
         pst.setInt(5, Pro.getCodigo());
         pst.execute();
         pst.close();
     }
       public Produto getProdutobyCodigo(int Codigo) throws SQLException {
         Produto produto = null;
-        sql = "Select * from produto WHERE Codigo=?";
+        sql = "Select * from produto WHERE Codproduto=?";
         Statement st;
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, Codigo);
@@ -62,7 +62,7 @@ public class CadastroProduto_Dao
         ResultSet rs = pst.getResultSet();
         while (rs.next()) {
 
-            produto = new Produto(rs.getInt("Codigo"),rs.getString("Descricao"), (float) rs.getDouble("Valor"), rs.getString("Fabricante"), rs.getInt("Quantidade"),rs.getString("Status"));
+            produto = new Produto(rs.getInt("Codproduto"),rs.getString("descricao"), rs.getString("marca"),(float) rs.getDouble("qntestoque"),(float) rs.getDouble("prevovenda"),(float) rs.getDouble("precocompra"), rs.getString("Fabricante"),rs.getString("status"));
 
         }
 
@@ -73,7 +73,7 @@ public class CadastroProduto_Dao
       public List<Produto> TodosProdutosAtivos() throws SQLException {
         Produto produto;
         List<Produto> produtos = new ArrayList<>();
-        sql = "Select * from produto order by codigo";
+        sql = "Select * from produto order by Codproduto";
         Statement st;
         pst = Conexao.getInstance().prepareStatement(sql);
 //        pst.setString(1, "");
@@ -81,7 +81,8 @@ public class CadastroProduto_Dao
         ResultSet rs = pst.getResultSet();
         while (rs.next()) {
     
-            produto = new Produto(rs.getInt("Codigo"),rs.getString("Descricao"),rs.getFloat("Valor"),rs.getString("Fabricante"),rs.getInt("Quantidade"),rs.getString("Status"));
+            produto = new Produto(rs.getInt("Codproduto"),rs.getString("descricao"), rs.getString("marca"),(float) rs.getDouble("qntestoque"),(float) rs.getDouble("prevovenda"),(float) rs.getDouble("precocompra"), rs.getString("Fabricante"),rs.getString("status"));
+
             
             produtos.add(produto);
         }
@@ -100,7 +101,8 @@ public class CadastroProduto_Dao
         ResultSet rs = st.getResultSet();
         while (rs.next()) {
 
-            produto = new Produto(rs.getInt("Codigo"),rs.getString("Descricao"),rs.getFloat("Valor"),rs.getString("Fabricante"),rs.getInt("Quantidade"),rs.getString("Status"));
+            produto = new Produto(rs.getInt("Codproduto"),rs.getString("descricao"), rs.getString("marca"),(float) rs.getDouble("qntestoque"),(float) rs.getDouble("prevovenda"),(float) rs.getDouble("precocompra"), rs.getString("Fabricante"),rs.getString("status"));
+
 
             produtos.add(produto);
         }
@@ -112,7 +114,7 @@ public class CadastroProduto_Dao
        public List<Produto> TodosProdutosInativos() throws SQLException {
         Produto produto;
         List<Produto> produtos = new ArrayList<>();
-        sql = "Select * from produto where Status =? order by Nome";
+        sql = "Select * from produto where status =? order by Nome";
         Statement st;
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, "Removido");
@@ -120,7 +122,8 @@ public class CadastroProduto_Dao
         ResultSet rs = pst.getResultSet();
         while (rs.next()) {
 
-             produto = new Produto(rs.getInt("Codigo"),rs.getString("Descricao"),rs.getFloat("Valor"),rs.getString("Fabricante"),rs.getInt("Quantidade"),rs.getString("Status"));
+              produto = new Produto(rs.getInt("Codproduto"),rs.getString("descricao"), rs.getString("marca"),(float) rs.getDouble("qntestoque"),(float) rs.getDouble("prevovenda"),(float) rs.getDouble("precocompra"), rs.getString("Fabricante"),rs.getString("status"));
+
 
             produtos.add(produto);
         }

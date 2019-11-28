@@ -5,26 +5,61 @@ public class Produto
 {
     private int Codigo;
     private String Descricao;
+    private String marca;
+    private float qntestoque;
+    private float precovenda;
     private float Valor;
     private String Fabricante;
-    private int Quantidade;
     private String Status;
     
-    public Produto(int Codigo, String Descricao, float Valor, String Fabricante, int Quantidade, String Status)
+    public Produto(int Codigo, String Descricao, String Marca,float qntestoque, float precovenda, float Valor, String Fabricante,  String Status)
     {
         this.Codigo = Codigo;
         this.Descricao = Descricao;
+        this.marca = Marca;
+        this.qntestoque = qntestoque;
+        this.precovenda = precovenda;
         this.Valor = Valor;
         this.Fabricante = Fabricante;
-        this.Quantidade = Quantidade;
         this.Status = Status;
         
+    }
+
+    public float getPrecovenda() {
+        return precovenda;
+    }
+
+    public void setPrecovenda(float precovenda) {
+        this.precovenda = precovenda;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public float getQntestoque() {
+        return qntestoque;
+    }
+
+    public void setQntestoque(float qntestoque) {
+        this.qntestoque = qntestoque;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
     public Produto()
     {
         
     }
-
 
 
     public int getCodigo() {
@@ -59,12 +94,5 @@ public class Produto
         this.Fabricante = Fabricante;
     }
 
-    public int getQuantidade() {
-        return Quantidade;
-    }
-
-    public void setQuantidade(int Quantidade) {
-        this.Quantidade = Quantidade;
-    }
     
 }
