@@ -40,7 +40,7 @@ public class View_Funcionario extends javax.swing.JFrame {
         Campos(false, false, false, false);
         Botao(true, false, false, true);
         funcionarios = new ArrayList<>();
-        campos(false, false, true, true);
+        campos(false, false, false, false,false);
         botao(true, true, false, false, false, true);
         AtualizarTabela();
     }
@@ -68,14 +68,15 @@ public class View_Funcionario extends javax.swing.JFrame {
         TextSetor.setSelectedItem("");
         TextCodigo.setText("");
         TextCpf.setText("");
-
+        TextStatus.setSelectedItem("");
     }
     
-    public void campos(boolean Tn, boolean Tse, boolean Tc, boolean TCpf) {
+    public void campos(boolean Tn, boolean Tse, boolean Tc, boolean TCpf, boolean TS) {
         TextNome.setEnabled(Tn);
         TextSetor.setEnabled(Tse);
         TextCodigo.setEnabled(Tc);
         TextCpf.setEnabled(TCpf);
+        TextStatus.setEnabled(TS);
 
     }
     
@@ -172,7 +173,7 @@ public class View_Funcionario extends javax.swing.JFrame {
         TextCpf = new javax.swing.JFormattedTextField();
         TextSetor = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        TextStatus = new javax.swing.JComboBox<>();
         ButtonLimpar = new javax.swing.JButton();
         ButtonSair = new javax.swing.JButton();
         ButtonSalvar = new javax.swing.JButton();
@@ -225,7 +226,7 @@ public class View_Funcionario extends javax.swing.JFrame {
 
         jLabel8.setText("Status");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", " ", "Ativo", "Inativo" }));
+        TextStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", " ", "Ativo", "Inativo" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -247,7 +248,7 @@ public class View_Funcionario extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(TextStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -272,7 +273,7 @@ public class View_Funcionario extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TextSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 38, Short.MAX_VALUE))
         );
 
@@ -548,7 +549,7 @@ public class View_Funcionario extends javax.swing.JFrame {
 
                 cpf = funcionario.getCpf();
                 fun = funcionario.getNome();
-                campos(true, true, false, false);
+                campos(true, true, false, false,false);
                 botao(false, false, true, true, true, true);
 
             }
@@ -593,7 +594,7 @@ public class View_Funcionario extends javax.swing.JFrame {
                     AtualizarTabela();
                     JOptionPane.showMessageDialog(null, "Campos alterados com sucesso!");
                     Limpar();
-                    campos(false, false, true, true);
+                    campos(false, false, true, true,true);
                     botao(true, true, false, false, false, true);
                 }
             } catch (Exception ex) {
@@ -612,7 +613,7 @@ public class View_Funcionario extends javax.swing.JFrame {
                 } else {
                     cDao.ExcluirFuncionario(Integer.parseInt(TextCodigo.getText()));
                     Limpar();
-                    campos(false, false, true, true);
+                    campos(false, false, true, true,true);
                     botao(true, true, false, false, false, true);
                 }
 
@@ -637,7 +638,7 @@ public class View_Funcionario extends javax.swing.JFrame {
                     TextNome.setText(funcionario.getNome());
                     TextCpf.setText(funcionario.getCpf());
                     TextSetor.setSelectedItem(funcionario.getSetor());
-                    campos(false, false, true, true);
+                    campos(false, false, true, true,true);
                     botao(true, true, true, true, true, true);
                     cpf = funcionario.getCpf();
                     fun = funcionario.getNome();
@@ -660,7 +661,7 @@ public class View_Funcionario extends javax.swing.JFrame {
                 TextCpf.setText(funcionario.getCpf());
                 TextSetor.setSelectedItem(funcionario.getSetor());
                 TextCodigo.setText(Integer.toString(funcionario.getCodigo()));
-                campos(false, false, true, true);
+                campos(false, false, true, true,false);
                 botao(true, true, true, true, true, true);
             }
         } catch (Exception e) {
@@ -720,7 +721,7 @@ public class View_Funcionario extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField TextCpf1;
     private javax.swing.JTextField TextNome;
     private javax.swing.JComboBox<String> TextSetor;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> TextStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

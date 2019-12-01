@@ -46,7 +46,7 @@ public class View_Cliente extends javax.swing.JFrame {
         Campos(false, false, false, false, false, false, false, false, false, false, false);
         Botao(true, false, false, true);
         campos(false, false, false, false, false, false, false, false, false, true, false, false, false);
-        botao(true, false, true, false, true, true);
+        botao(true, false, true, false, true, true,true);
         AtualizarTabela();
     }
 
@@ -98,7 +98,7 @@ public class View_Cliente extends javax.swing.JFrame {
         ButtonSair.setEnabled(Be);
     }
 
-     public void botao(boolean Be, boolean BEx, boolean Ba, boolean Bsa, boolean BPC, boolean BP) {
+     public void botao(boolean Be, boolean BEx, boolean Ba, boolean Bsa, boolean BPC, boolean BP, boolean BR) {
 
         ButtonSair.setEnabled(Be);
         ButtonExcluir.setEnabled(BEx);
@@ -106,6 +106,7 @@ public class View_Cliente extends javax.swing.JFrame {
         ButtonSalvarAlt.setEnabled(Bsa);
         ButtonPesqCod.setEnabled(BPC);
         ButtonPesqCpf.setEnabled(BP);
+        ButtonRelatorio.setEnabled(BR);
     }
     
      public void campos(boolean Tn, boolean Ten, boolean TT, boolean TCe, boolean TC, boolean TCpf, boolean Rg, boolean TDt, boolean Ts, boolean Tco, boolean Tnu, boolean Tba, boolean TS) {
@@ -183,6 +184,7 @@ public class View_Cliente extends javax.swing.JFrame {
         ButtonExcluir = new javax.swing.JButton();
         ButtonAtivar = new javax.swing.JButton();
         ButtonSalvarAlt = new javax.swing.JButton();
+        ButtonRelatorio = new javax.swing.JButton();
 
         ButtonPesqCpf.setText("Pesquisar");
         ButtonPesqCpf.addActionListener(new java.awt.event.ActionListener() {
@@ -500,6 +502,14 @@ public class View_Cliente extends javax.swing.JFrame {
             }
         });
 
+        ButtonRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/page_white_acrobat.png"))); // NOI18N
+        ButtonRelatorio.setText("Relatório Cliente");
+        ButtonRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRelatorioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -510,7 +520,7 @@ public class View_Cliente extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(203, 203, 203)
+                        .addGap(238, 238, 238)
                         .addComponent(ButtonNovo)
                         .addGap(17, 17, 17))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -529,12 +539,14 @@ public class View_Cliente extends javax.swing.JFrame {
                         .addComponent(ButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ButtonExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonRelatorio)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ButtonAtivar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ButtonSalvarAlt)
-                        .addGap(19, 19, 19))))
+                        .addGap(19, 548, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -555,13 +567,18 @@ public class View_Cliente extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ButtonLimpar)
-                        .addComponent(ButtonSalvar)
-                        .addComponent(ButtonExcluir))
-                    .addComponent(ButtonSair, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ButtonLimpar)
+                                .addComponent(ButtonSalvar)
+                                .addComponent(ButtonExcluir))
+                            .addComponent(ButtonSair, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonRelatorio)))
                 .addGap(0, 0, 0))
         );
 
@@ -727,7 +744,7 @@ public class View_Cliente extends javax.swing.JFrame {
                 cpf = cliente.getCpf();
                 cli = cliente.getNome();
                 campos(false, false, false, false, false, false, false, false, false, true, false, false,false);
-                botao(true, true, true, true, true, true);
+                botao(true, true, true, true, true, true,true);
 
             }
         } catch (Exception ex) {
@@ -759,7 +776,7 @@ public class View_Cliente extends javax.swing.JFrame {
                 cpf = cliente.getCpf();
                 cli = cliente.getNome();
                 campos(false, false, false, false, false, false, false, false, false, true, false, false,false);
-                botao(true, true, true, true, true, true);
+                botao(true, true, true, true, true, true,true);
 
             }
         } catch (Exception ex) {
@@ -794,7 +811,7 @@ public class View_Cliente extends javax.swing.JFrame {
         int i = JOptionPane.showConfirmDialog(null, "Você deseja realmente atualizar os dados?");
         if (i == 0) {
             campos(true, true, true, true, true, false, true, true, true, false, true, true, true);
-            botao(true, true, false, true, true, true);
+            botao(true, true, false, true, true, true,true);
         }
     }//GEN-LAST:event_ButtonAtivarActionPerformed
 
@@ -830,7 +847,7 @@ public class View_Cliente extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Cadastro Alterado com Sucesso");
                         Limpar();
                         campos(false, false, false, false, false, true, false, false, false, true, false, false,false);
-                        botao(true, false, false, true, true, true);
+                        botao(true, false, false, true, true, true,true);
                     }
                 }
             }
@@ -859,7 +876,7 @@ public class View_Cliente extends javax.swing.JFrame {
                 TextBairro.setText(cliente.getBairro());
 
                 campos(false, false, false, false, false, false, false, false, false, true, false, false,false);
-                botao(true, false, false, true, true, true);
+                botao(true, false, false, true, true, true,true);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -886,12 +903,16 @@ public class View_Cliente extends javax.swing.JFrame {
                 TextBairro.setText(cliente.getBairro());
 
                 campos(false, false, false, false, false, false, false, false, false, true, false, false,false);
-                botao(true, false, false, true, true, true);
+                botao(true, false, false, true, true, true,true);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_ButtonPesqCpf1ActionPerformed
+
+    private void ButtonRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRelatorioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRelatorioActionPerformed
 
         public int validarCli() {
         int vc = 0;
@@ -954,6 +975,7 @@ public class View_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton ButtonPesqCod;
     private javax.swing.JButton ButtonPesqCpf;
     private javax.swing.JButton ButtonPesqCpf1;
+    private javax.swing.JButton ButtonRelatorio;
     private javax.swing.JButton ButtonSair;
     private javax.swing.JButton ButtonSalvar;
     private javax.swing.JButton ButtonSalvarAlt;

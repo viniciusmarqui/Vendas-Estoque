@@ -40,24 +40,27 @@ public class View_Produto extends javax.swing.JFrame {
         Campos(false, false, false, false, false);
         Botao(true, false, false, true);
         
-        campos(true, false, false, false, false);
+        campos(false, false, false, false, false,false,false, false);
         botao(true, false, false, false, true);
         AtualizarTabela();
     }
 
   
     public void Limpar() {
-        TextCodigo.setText("");
+        TextCodigoPro.setText("");
         TextDescricao.setText("");
         TextValor.setText("");
         TextFabricante.setText("");
         TextQuantidade.setText("");
+        TextMarca.setText("");
+        TextCompra.setText("");
+        TextStatus.setSelectedItem("");
     }
     
     
 
     public void Campos(boolean Tc, boolean Td, boolean Tv, boolean Tf, boolean Tq) {
-        TextCodigo.setEnabled(Tc);
+        TextCodigoPro.setEnabled(Tc);
         TextDescricao.setEnabled(Td);
         TextValor.setEnabled(Tv);
         TextFabricante.setEnabled(Tf);
@@ -72,12 +75,15 @@ public class View_Produto extends javax.swing.JFrame {
         ButtonSair.setEnabled(Be);
     }
     
-    public void campos(boolean Tc, boolean Td, boolean Tv, boolean Tf, boolean Tq) {
-        TextCodigo.setEnabled(Tc);
+    public void campos(boolean Tc, boolean Td, boolean Tv, boolean Tf, boolean Tq, boolean TM, boolean TC, boolean TS) {
+        TextCodigoPro.setEnabled(Tc);
         TextDescricao.setEnabled(Td);
         TextValor.setEnabled(Tv);
         TextFabricante.setEnabled(Tf);
         TextQuantidade.setEnabled(Tq);
+        TextMarca.setEnabled(TM);
+        TextCompra.setEnabled(TC);
+        TextStatus.setEnabled(TS);
 
     }
     
@@ -127,17 +133,17 @@ public class View_Produto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TextCodigo = new javax.swing.JTextField();
+        TextCodigoPro = new javax.swing.JTextField();
         TextDescricao = new javax.swing.JTextField();
         TextValor = new javax.swing.JTextField();
         TextFabricante = new javax.swing.JTextField();
         TextQuantidade = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtcompra = new javax.swing.JTextField();
+        TextCompra = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtMarca = new javax.swing.JTextField();
+        TextMarca = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JComboBox<>();
+        TextStatus = new javax.swing.JComboBox<>();
         ButtonLimpar = new javax.swing.JButton();
         ButtonSalvar = new javax.swing.JButton();
         ButtonSair = new javax.swing.JButton();
@@ -182,15 +188,15 @@ public class View_Produto extends javax.swing.JFrame {
 
         jLabel9.setText("Marca");
 
-        txtMarca.addActionListener(new java.awt.event.ActionListener() {
+        TextMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMarcaActionPerformed(evt);
+                TextMarcaActionPerformed(evt);
             }
         });
 
         jLabel10.setText("Status");
 
-        txtStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Ativo", "Inativo" }));
+        TextStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Ativo", "Inativo" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,7 +216,7 @@ public class View_Produto extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(TextValor, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                            .addComponent(TextCodigo))
+                            .addComponent(TextCodigoPro))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -220,15 +226,15 @@ public class View_Produto extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtcompra, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(TextCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel10)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
         jPanel2Layout.setVerticalGroup(
@@ -246,12 +252,12 @@ public class View_Produto extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
-                        .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextCodigoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)
-                        .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TextMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
-                        .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TextStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -259,7 +265,7 @@ public class View_Produto extends javax.swing.JFrame {
                     .addComponent(TextQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel8)
-                    .addComponent(txtcompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -487,10 +493,10 @@ public class View_Produto extends javax.swing.JFrame {
     private void ButtonPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesqActionPerformed
 
         try {
-            if (TextCodigo.getText().equals("")) {
+            if (TextCodigoPro.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Digite o número do Codigo: ");
             } else {
-                produto = cDao.getProdutobyCodigo(Integer.parseInt(TextCodigo.getText()));
+                produto = cDao.getProdutobyCodigo(Integer.parseInt(TextCodigoPro.getText()));
             }
             if (produto == null) {
                 JOptionPane.showMessageDialog(null, "Produto não encontrado");
@@ -499,7 +505,7 @@ public class View_Produto extends javax.swing.JFrame {
                 TextValor.setText(Integer.toString((int) produto.getValor()));
                 TextFabricante.setText(produto.getFabricante());
                 TextQuantidade.setText(Integer.toString((int) produto.getQntestoque()));
-                campos(true, false, false, false, false);
+                campos(true, false, false, false, false,false,false,false);
                 botao(true, true, true, true, true);
             }
         } catch (Exception ex) {
@@ -513,12 +519,12 @@ public class View_Produto extends javax.swing.JFrame {
 
         if (i == 0) {
             produto = new Produto();
-            produto.setCodigo(Integer.parseInt(TextCodigo.getText()));
+            produto.setCodigo(Integer.parseInt(TextCodigoPro.getText()));
             produto.setDescricao(TextDescricao.getText());
             produto.setValor(Float.parseFloat(TextValor.getText()));
             produto.setFabricante(TextFabricante.getText());
             produto.setQntestoque(parseInt(TextQuantidade.getText()));
-            campos(true, true, true, true, true);
+            campos(true, true, true, true, true,true,true,true);
             botao(true, true, true, true, true);
         }
     }//GEN-LAST:event_ButtonAtivarActionPerformed
@@ -541,7 +547,7 @@ public class View_Produto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Campos alterados com sucesso!");
                 Limpar();
 
-                campos(true, false, false, false, false);
+                campos(true, false, false, false, false,false,false,false);
                 botao(true, false, false, false, true);
 
             }
@@ -564,7 +570,7 @@ public class View_Produto extends javax.swing.JFrame {
                 TextQuantidade.setText(String.valueOf(produto.getQntestoque()));
                 TextValor.setText(String.valueOf(produto.getValor()));
 
-                campos(false, true, true, true, true);
+                campos(false, true, true, true, true,true,true,true);
                 botao(false, true, true, true, true);
 
             }
@@ -577,12 +583,12 @@ public class View_Produto extends javax.swing.JFrame {
         int i = JOptionPane.showConfirmDialog(null, "Deseja Realmente Excluir?!");
         if (i == 0) {
             try {
-                if (TextCodigo.getText().isEmpty()) {
+                if (TextCodigoPro.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Pesquise o produto a ser excluido");
                 } else {
-                    cDao.ExcluirProduto(Integer.parseInt(TextCodigo.getText()));
+                    cDao.ExcluirProduto(Integer.parseInt(TextCodigoPro.getText()));
                     Limpar();
-                    campos(true, false, false, false, false);
+                    campos(true, false, false, false, false,false,false,false);
                     botao(true, false, false, false, true);
                 }
 
@@ -593,9 +599,9 @@ public class View_Produto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonExcluirActionPerformed
 
-    private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
+    private void TextMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextMarcaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMarcaActionPerformed
+    }//GEN-LAST:event_TextMarcaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -642,11 +648,14 @@ public class View_Produto extends javax.swing.JFrame {
     private javax.swing.JButton ButtonSalvar;
     private javax.swing.JButton ButtonSalvarAlt;
     private javax.swing.JTable TablePro;
-    private javax.swing.JTextField TextCodigo;
     private javax.swing.JTextField TextCodigo1;
+    private javax.swing.JTextField TextCodigoPro;
+    private javax.swing.JTextField TextCompra;
     private javax.swing.JTextField TextDescricao;
     private javax.swing.JTextField TextFabricante;
+    private javax.swing.JTextField TextMarca;
     private javax.swing.JTextField TextQuantidade;
+    private javax.swing.JComboBox<String> TextStatus;
     private javax.swing.JTextField TextValor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -661,8 +670,5 @@ public class View_Produto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtMarca;
-    private javax.swing.JComboBox<String> txtStatus;
-    private javax.swing.JTextField txtcompra;
     // End of variables declaration//GEN-END:variables
 }

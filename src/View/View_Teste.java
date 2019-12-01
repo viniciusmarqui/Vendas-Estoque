@@ -151,7 +151,8 @@ public class View_Teste extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu5MouseClicked
 
     private void VendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseClicked
-
+       View_Venda Ven = new View_Venda();
+        Ven.setVisible(true);
     }//GEN-LAST:event_VendaMouseClicked
 
     public static void main(String args[]) {
